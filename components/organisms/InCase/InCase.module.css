@@ -1,0 +1,52 @@
+.section {
+  border-top: var(--hairline);
+  padding-block: var(--space-7);
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+/* Phones show four cards; the fifth appears on wide screens. */
+.grid > :nth-child(n + 5) {
+  display: none;
+}
+
+.cta {
+  display: flex;
+}
+
+.cta > * {
+  flex: 1;
+}
+
+@media (min-width: 64rem) {
+  .section {
+    padding-block: var(--space-8);
+  }
+
+  .grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: var(--space-5);
+  }
+
+  .grid > :nth-child(n + 5) {
+    display: flex;
+  }
+
+  .cta {
+    justify-content: center;
+  }
+
+  .cta > * {
+    flex: none;
+  }
+}

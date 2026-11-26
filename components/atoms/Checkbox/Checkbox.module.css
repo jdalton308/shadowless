@@ -1,0 +1,34 @@
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: var(--tap);
+  cursor: pointer;
+}
+
+.box {
+  accent-color: var(--color-accent);
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  flex: none;
+}
+
+.label {
+  flex: 1;
+  min-width: 0;
+}
+
+.count {
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (min-width: 64rem) {
+  .row {
+    min-height: 2.25rem;
+    font-size: var(--text-sm);
+  }
+}

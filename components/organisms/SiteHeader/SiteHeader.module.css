@@ -1,0 +1,23 @@
+.header {
+  border-bottom: var(--hairline);
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-block: var(--space-3);
+}
+
+.home {
+  display: block;
+  line-height: 0;
+}
+
+@media (min-width: 40rem) {
+  .inner {
+    padding-block: var(--space-4);
+  }
+}

@@ -1,0 +1,17 @@
+.logo {
+  height: auto;
+}
+
+.md {
+  width: 180px;
+}
+
+.lg {
+  width: 240px;
+}
+
+@media (min-width: 40rem) {
+  .md {
+    width: 240px;
+  }
+}

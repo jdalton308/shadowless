@@ -1,0 +1,38 @@
+/* Bands are positioned along the corner's diagonal; the box size sets the scale. */
+.corner {
+  --s: 200px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: var(--s);
+  height: var(--s);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.magenta,
+.aqua {
+  position: absolute;
+  width: calc(var(--s) * 2.2);
+  transform: rotate(-45deg);
+}
+
+.magenta {
+  height: calc(var(--s) * 0.22);
+  left: calc(var(--s) * -0.31);
+  top: calc(var(--s) * 0.67);
+  background: var(--color-magenta);
+}
+
+.aqua {
+  height: calc(var(--s) * 0.045);
+  left: calc(var(--s) * -0.45);
+  top: calc(var(--s) * 0.63);
+  background: var(--color-aqua);
+}
+
+@media (min-width: 64rem) {
+  .corner {
+    --s: 480px;
+  }
+}
