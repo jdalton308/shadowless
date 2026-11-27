@@ -80,7 +80,7 @@ export const common = {
 export const home = {
   hero: {
     eyebrow: `Pre-2003 · ${site.region}`,
-    titleLines: ['All Pokémon.', 'All Vintage.'],
+    titleLines: ['All Vintage Pokémon.'],
     body:
       'Graded Pokémon cards and sealed packs from 1996 to 2003, English and Japanese. Browse our inventory here and contact us with any questions, or come find us in person at card shows across Southern California (Or sometimes the US).',
   },

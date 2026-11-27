@@ -211,7 +211,7 @@
     padding: var(--space-3) 0;
   }
 
-  .results::before {
+  /* .results::before {
     content: '';
     grid-column: 1 / -1;
     grid-row: 1;
@@ -219,7 +219,7 @@
     border-top: var(--rule);
     border-bottom: var(--hairline);
     pointer-events: none;
-  }
+  } */
 
   .grid,
   .end,
