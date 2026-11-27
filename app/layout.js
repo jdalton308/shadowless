@@ -1,4 +1,5 @@
 import { JetBrains_Mono, Space_Grotesk } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
 import SiteFooter from '@/components/organisms/SiteFooter/SiteFooter';
 import SiteHeader from '@/components/organisms/SiteHeader/SiteHeader';
 import { meta, site } from '@/content/copy';
@@ -31,6 +32,7 @@ export default function RootLayout({ children }) {
         <SiteHeader />
         <main>{children}</main>
         <SiteFooter />
+        <Analytics />
       </body>
     </html>
   );
