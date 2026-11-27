@@ -13,8 +13,8 @@ export const site = {
     'Graded vintage Pokémon cards and sealed product from 1996 to 2003. Find our table at card shows across Southern California.',
   tagline: 'Vintage Pokémon · 1996–2003',
   region: 'Southern California',
-  instagramHandle: 'shadowlesscards',
-  email: 'hello@example.com',
+  instagramHandle: 'ShadowlessCardCo',
+  email: 'Joe@ShadowlessCards.com',
 };
 
 export const links = {
