@@ -10,7 +10,7 @@ export const site = {
   name: 'Shadowless Card Co.',
   shortName: 'Shadowless',
   description:
-    'Graded vintage Pokémon cards and sealed product from 1996 to 2003. Find our table at card shows across Southern California.',
+    'Graded vintage Pokémon cards from 1996 to 2003. Find our table at card shows across Southern California.',
   tagline: 'Vintage Pokémon · 1996–2003',
   region: 'Southern California',
   instagramHandle: 'ShadowlessCardCo',
@@ -79,10 +79,10 @@ export const common = {
 
 export const home = {
   hero: {
-    eyebrow: `All vintage · ${site.region}`,
-    titleLines: ['All vintage.', 'All real.'],
+    eyebrow: `Pre-2003 · ${site.region}`,
+    titleLines: ['All Pokémon.', 'All Vintage.'],
     body:
-      'Graded Pokémon cards and sealed packs from 1996 to 2003, English and Japanese. Find our table at card shows across Southern California, or browse what’s in the case.',
+      'Graded Pokémon cards and sealed packs from 1996 to 2003, English and Japanese. Browse our inventory here and contact us with any questions, or come find us in person at card shows across Southern California (Or sometimes the US).',
   },
   shows: {
     eyebrow: 'Shows',
@@ -90,8 +90,8 @@ export const home = {
     empty: 'No shows posted yet. New dates are announced on Instagram first.',
   },
   inCase: {
-    eyebrow: 'In the case',
-    title: 'What’s for sale',
+    eyebrow: 'Updated Daily',
+    title: 'Current Inventory',
     countLabel: 'cards available',
   },
   buying: {
@@ -112,8 +112,8 @@ export const home = {
 
 export const inventory = {
   eyebrow: 'Inventory',
-  title: 'In the case',
-  body: 'Graded slabs and sealed vintage product. Everything listed here is in stock as of the last update. Find us at a show to see a card in person.',
+  title: 'In the case today',
+  body: 'Graded slabs and sealed vintage product. Everything listed here is in stock as of yesterday, though they move quickly so don\'t hesitate to contact us if you\'re interested in something specific. Or come find us at a show to see a card in person.',
   showing: (shown, total) => `Showing ${shown} of ${total}`,
   allShown: (n) => `All ${n} cards shown`,
   filtersTitle: 'Filters',
