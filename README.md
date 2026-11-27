@@ -9,7 +9,7 @@ Next.js 16 (App Router, JavaScript), deployed on Vercel. All data comes from the
   - when you pick **Shadowless site → Publish site** in Books (`scripts/apps-script/PublishSite.gs`)
   - once a day at 00:05 Pacific (standard time) via Vercel Cron (`vercel.json`)
   - and pages also expire after a day on their own, as a safety net.
-- **Photos:** originals stay in the Drive photos folder, named `<Item ID>-front.jpg` and `<Item ID>-back.jpg`. Resized copies (1400px JPEG) live in Vercel Blob at `cards/<Item ID>-<side>.<version>.jpg`; the version comes from the Drive file's checksum, so replacing a photo in Drive (same name) updates the site on the next refresh. Nothing image-related is committed.
+- **Photos:** originals stay in the Drive photos folder, named `<Item ID>-front.jpg` and `<Item ID>-back.jpg`. Resized copies (1400px JPEG) live in Vercel Blob at `cards/<Item ID>-<side>.<version>.jpg`; the version comes from the Drive file's checksum, so replacing a photo in Drive (same name) updates the site on the next refresh. Each refresh also deletes the Blob copies of cards that are no longer listed (sold or delisted); the originals in Drive are never touched, and a relisted card's photo is copied back. If the Price List comes back with no listed cards, cleanup is skipped so a bad sheet read can't wipe the photos. Nothing image-related is committed.
 - **Home screen:** `app/manifest.js` plus the app icons let visitors add the site to a phone's home screen. No service worker.
 
 ## Data the site reads

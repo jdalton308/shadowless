@@ -46,6 +46,8 @@ function publishSite() {
   var lines = ['Site updated.'];
   if (p.skipped) lines.push('Photos skipped: ' + p.skipped + '.');
   if (p.listed !== undefined) lines.push(p.listed + ' cards listed, ' + p.uploaded + ' new or updated photos copied.');
+  if (p.removed) lines.push(p.removed + ' photos of sold or unlisted cards removed from the site.');
+  if (p.cleanup) lines.push('Photo cleanup ' + p.cleanup + '.');
   if (p.withoutPhoto && p.withoutPhoto.length) {
     lines.push('No front photo in Drive for Item IDs: ' + p.withoutPhoto.join(', ') + '.');
   }
