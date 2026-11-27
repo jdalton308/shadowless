@@ -9,7 +9,7 @@ Next.js 16 (App Router, JavaScript), deployed on Vercel. All data comes from the
   - when you pick **Shadowless site → Publish site** in Books (`scripts/apps-script/PublishSite.gs`)
   - once a day at 00:05 Pacific (standard time) via Vercel Cron (`vercel.json`)
   - and pages also expire after a day on their own, as a safety net.
-- **Photos:** originals stay in Drive. Resized copies (1400px JPEG) live in Vercel Blob at `cards/<itemId>-front.jpg` and `-back.jpg`. Nothing image-related is committed.
+- **Photos:** originals stay in the Drive photos folder, named `<Item ID>-front.jpg` and `<Item ID>-back.jpg`. Resized copies (1400px JPEG) live in Vercel Blob at `cards/<Item ID>-<side>.<version>.jpg`; the version comes from the Drive file's checksum, so replacing a photo in Drive (same name) updates the site on the next refresh. Nothing image-related is committed.
 - **Home screen:** `app/manifest.js` plus the app icons let visitors add the site to a phone's home screen. No service worker.
 
 ## Data the site reads
@@ -17,10 +17,9 @@ Next.js 16 (App Router, JavaScript), deployed on Vercel. All data comes from the
 | Tab | Range | Used for |
 | --- | --- | --- |
 | Price List | `A7:N` (header row 7) | Listed cards: rows with an Item ID, a List Price and no Date Sold |
-| Photo IDs | `A:C` | Item ID → front photo Drive file ID (optional column C: back photo file ID) |
 | Shows | `A:K` | The show calendar (create this tab; columns below) |
 
-Nothing else in Books is read. Cost basis, vendors and profit never leave the sheet.
+Photos are found by file name in the Drive folder set by `DRIVE_PHOTOS_FOLDER_ID` (front required, back optional). Nothing else in Books is read. Cost basis, vendors and profit never leave the sheet.
 
 **Shows tab columns (row 1 headers, exact names):**
 `Start Date` · `End Date` · `Show Name` · `Venue` · `Address` · `City` · `Hours` · `Organizer Instagram` · `Entry` · `Parking` · `Notes`
@@ -57,7 +56,7 @@ Without Google credentials, development uses `lib/sample-data.js`. A production 
 
 1. **Google service account:** in Google Cloud, create a service account, enable the Sheets and Drive APIs, and create a JSON key. Share the Books sheet and the slab photos folder (or the shared drive) with the service account's email as Viewer.
 2. **Vercel project:** import the repository. Add a **Blob** store under Storage (this sets `BLOB_READ_WRITE_TOKEN`).
-3. **Environment variables** in Vercel: `GOOGLE_SERVICE_ACCOUNT_EMAIL`, `GOOGLE_SERVICE_ACCOUNT_KEY`, `BOOKS_SHEET_ID`, `CRON_SECRET` (a long random string), and optionally `NEXT_PUBLIC_SITE_URL`.
+3. **Environment variables** in Vercel: `GOOGLE_SERVICE_ACCOUNT_EMAIL`, `GOOGLE_SERVICE_ACCOUNT_KEY`, `BOOKS_SHEET_ID`, `DRIVE_PHOTOS_FOLDER_ID` (the ID at the end of the photos folder's Drive URL), `CRON_SECRET` (a long random string), and optionally `NEXT_PUBLIC_SITE_URL`.
 4. **Publish menu:** paste `scripts/apps-script/PublishSite.gs` into Books → Extensions → Apps Script, and set the `SITE_URL` and `CRON_SECRET` script properties.
 5. **First publish:** run Publish site. It copies up to 60 photos per run; run it again if the result says photos remain.
 6. **Copy:** set the real Instagram handle and email in `content/copy.js` (`site.instagramHandle`, `site.email`).

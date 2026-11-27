@@ -44,8 +44,11 @@ function publishSite() {
   var body = JSON.parse(res.getContentText());
   var p = body.photos || {};
   var lines = ['Site updated.'];
-  if (p.listed !== undefined) lines.push(p.listed + ' cards listed, ' + p.uploaded + ' new photos uploaded.');
-  if (p.withoutPhotoId) lines.push(p.withoutPhotoId + ' listed cards have no photo in the Photo IDs tab.');
+  if (p.skipped) lines.push('Photos skipped: ' + p.skipped + '.');
+  if (p.listed !== undefined) lines.push(p.listed + ' cards listed, ' + p.uploaded + ' new or updated photos copied.');
+  if (p.withoutPhoto && p.withoutPhoto.length) {
+    lines.push('No front photo in Drive for Item IDs: ' + p.withoutPhoto.join(', ') + '.');
+  }
   if (p.remaining) lines.push(p.remaining + ' photos still to upload. Run Publish again.');
   if (p.failed && p.failed.length) lines.push(p.failed.length + ' photos failed to copy.');
   ui.alert(lines.join('\n'));
